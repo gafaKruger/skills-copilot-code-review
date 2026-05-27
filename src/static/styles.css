@@ -36,11 +36,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Avenir Next", "Nunito", "Segoe UI", sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Avenir Next", "Nunito", "Segoe UI", sans-serif;
   line-height: 1.4;
   color: var(--text-primary);
   max-width: 1200px;
@@ -428,12 +428,21 @@ button {
   border: 1px solid var(--border);
 }
 
+.announcement-modal-content {
+  max-width: 760px;
+  width: 95%;
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+
 .modal.show .modal-content {
   transform: translateY(0);
 }
 
 .close-modal,
-.close-login-modal {
+.close-login-modal,
+.close-announcement-modal {
   position: absolute;
   right: 12px;
   top: 8px;
@@ -617,6 +626,9 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 #user-status {
@@ -666,9 +678,152 @@ footer {
 }
 
 .announcement-banner {
-  background-color: #4caf50;
-  color: white;
+  background: linear-gradient(115deg, #f4f9ff 0%, #e7f0ff 60%, #dbe8ff 100%);
+  border: 1px solid #c1d6ff;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(52, 90, 168, 0.12);
+}
+
+#announcement-banner-content {
+  display: grid;
+  gap: 8px;
+}
+
+.announcement-pill {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(96, 132, 209, 0.25);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.announcement-pill p {
+  margin: 0 0 3px;
+  color: #133a78;
+  font-weight: 600;
+}
+
+.announcement-pill small {
+  color: #2e5ca7;
+  font-size: 0.78rem;
+}
+
+.announcement-pill-icon {
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+
+.announcement-modal-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.announcement-form {
+  background: #f8fbff;
+  border: 1px solid #dbe8ff;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.announcement-form textarea,
+.announcement-form input[type="datetime-local"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.announcement-date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.announcement-form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.secondary-button {
+  background-color: #edf2ff;
+  color: #1e3f78;
+  border: 1px solid #c8d9ff;
+}
+
+.secondary-button:hover {
+  background-color: #dce8ff;
+}
+
+.danger-button {
+  background-color: #ffe7ea;
+  color: #9f1d2c;
+  border: 1px solid #ffc3cb;
+}
+
+.danger-button:hover {
+  background-color: #ffd5dd;
+}
+
+.announcement-list {
+  display: grid;
+  gap: 10px;
+}
+
+.announcement-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.announcement-item-message {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.announcement-item-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.announcement-empty {
   text-align: center;
-  padding: 15px;
-  font-weight: bold;
+  color: var(--text-secondary);
+  padding: 10px;
+}
+
+@media (max-width: 767px) {
+  .announcement-date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .announcement-item {
+    flex-direction: column;
+  }
+
+  .announcement-item-actions {
+    width: 100%;
+  }
+
+  .announcement-item-actions button {
+    flex: 1;
+  }
 }
